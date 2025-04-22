@@ -40,11 +40,7 @@ contract CounterDeployScript is Script {
 
         vm.startBroadcast();
 
-        inst = CounterDeploy.deploy(CounterDeployParams({
-            deployer: msg.sender,
-            onwer: pauseProxy,
-            initial: 42
-        }));
+        inst = CounterDeploy.deploy(CounterDeployParams({deployer: msg.sender, onwer: pauseProxy, initial: 42}));
 
         vm.stopBroadcast();
 
