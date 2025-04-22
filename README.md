@@ -1,66 +1,34 @@
-## Foundry
+## Solidity Project Bootstrap
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Standardized project structure for Solidity projects.
 
-Foundry consists of:
+## Features
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
+- [ ] Standard directory structure for Dewiz Solidity projects.
+- [ ] Default `.editorconfig` to avoid conflicting editor settings (see [editorconfig](https://editorconfig.org/)).
+- [ ] Includes common dependencies (see [forge-std](https://github.com/makerdao/forge-std) and [dss-test](https://github.com/makerdao/dss-test)).
 
 ## Usage
 
-### Build
+Choose `solidity-project-bootstrap` template when creating a new repository through the GitHub UI.
 
-```shell
-$ forge build
+### Update Dependencies
+
+This template might have stale dependencies. To update them, run:
+
+```
+forge update forge-std
+forge update dss-test
 ```
 
-### Test
+### Deployment Scripts
 
-```shell
-$ forge test
+Simulate the deployment of a `Counter` contract on Mainnet, using the `CounterDeployScript` script.
+
+```bash
+FOUNDRY_ROOT_CHAINID=1 FOUNDRY_SCRIPT_CONFIG_TEXT="{}" \
+    forge script CounterDeployScript --fork-url $ETH_RPC_URL --sender $ETH_FROM -vvv 
 ```
 
-### Format
+Add `--broadcast` to broadcast the transactions.
 
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
