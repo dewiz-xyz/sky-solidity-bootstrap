@@ -38,6 +38,7 @@ FOUNDRY_EXPORTS_OVERWRITE_LATEST=true FOUNDRY_ROOT_CHAINID=1 FOUNDRY_SCRIPT_CONF
 ```
 
 Alternatively, pass the script config as text:
+
 ```bash
 FOUNDRY_EXPORTS_OVERWRITE_LATEST=true FOUNDRY_ROOT_CHAINID=1 FOUNDRY_SCRIPT_CONFIG_TEXT='{"initial": 42}' \
     forge script CounterDeployScript --fork-url $ETH_RPC_URL --sender $ETH_FROM -vvv
