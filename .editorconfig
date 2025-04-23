@@ -1,7 +1,5 @@
 # EditorConfig for Sky Protocol Projects
 
-# EditorConfig is awesome: https://EditorConfig.org
-
 # top-most EditorConfig file
 root = true
 
@@ -10,23 +8,30 @@ charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
+indent_style = space
 
 # Source Code
 [*.{sol,sh,js,py}]
-indent_style = space
 indent_size = 4
 
 # Certora
-[*.{conf,spec}]
-indent_style = space
+[*.spec]
 indent_size = 4
 
-# Config Files
-[{foundry.toml,package.json,.github/**/*.yml}]
-indent_style = space
+[*.conf]
 indent_size = 2
+
+# Config Files
+[*.{json,json5,yml,yaml}]
+indent_size = 2
+
+[*.toml]
+indent_size = 4
+
+[Makefile]
+intent_style = tab
+indent_size = 4
 
 # Special Cases
 [*.{diff,md}]
 trim_trailing_whitespace = false
-
