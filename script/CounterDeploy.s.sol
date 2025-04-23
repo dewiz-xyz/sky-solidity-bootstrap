@@ -38,9 +38,11 @@ contract CounterDeployScript is Script {
     function run() external {
         config = ScriptTools.loadConfig();
 
+        uint256 initial = config.readUint(".initial");
+
         vm.startBroadcast();
 
-        inst = CounterDeploy.deploy(CounterDeployParams({deployer: msg.sender, onwer: pauseProxy, initial: 42}));
+        inst = CounterDeploy.deploy(CounterDeployParams({deployer: msg.sender, onwer: pauseProxy, initial: initial}));
 
         vm.stopBroadcast();
 
